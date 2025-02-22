@@ -19,6 +19,18 @@
         {% endfor %}
     </ul>
 
+    <h2>Add Passenger</h2>
+
+    <form action="{% url 'book' flight.id %}" method="post">
+        {% csrf_token %}
+        <select name="passenger" id="">
+            {% for passenger in non_passengers %}
+                <option value="{{ passenger.id }}">{{ passenger }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit">
+    </form>
+
     <!-- Add a link to take you back to the Index View / Flight List-->
     <a href="{% url 'index' %}">Back to Flight List</a> 
 {% endblock %}
