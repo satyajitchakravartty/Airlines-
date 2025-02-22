@@ -1,11 +1,11 @@
 from django.contrib import admin
 
-# Import Flight and Airport from models
-from .models import Flight, Airport
+# Import Flight and Airport and Passenger from models
+from .models import Flight, Airport, Passenger
 
 # Register your models here.
 
-
-# This tell the django admin app, that i will want to use the admin app to be able to manipulate Airport and FLights
+# To use the admin app to be able to manipulate Airport and FLights
 admin.site.register(Airport)
 admin.site.register(Flight)
+admin.site.register(Passenger)

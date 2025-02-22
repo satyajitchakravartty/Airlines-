@@ -11,5 +11,6 @@ def index(request):
 def flight(request, flight_id): # Create a flight function that accepts flight_id as an argument
     flight = Flight.objects.get(pk=flight_id) # Get the flight whos ID = Flight ID ( pk refers to primary key, can also use id instead of pk)
     return render(request, "flights/flight.html", {
-        "flight": flight # pass the flight class to flight.html
+        "flight": flight, # pass the flight class to flight.html
+        "passengers": flight.passengers.all()
     })

@@ -23,3 +23,13 @@ class Flight(models.Model):
         # String representation of any flight is going to be a string that gives it an id which is equal to orgin to dest.
         
 
+class Passenger(models.Model):
+    first = models.CharField(max_length=64) # Passenger has a first name field
+    last = models.CharField(max_length=64) # Passenger has a last name field
+    flights = models.ManyToManyField(Flight, blank=True, related_name="passengers") 
+    # each passenger can have multiple flights - hence many to many with Flight. 
+    # blank=True in case passenger has no flights.
+    # In case we have a flight, we can use passenger related name to access all of the passengers who are on the flight.
+
+    def __str__(self): # String representation of a passenger will be their first name and last name
+        return f"{self.first} {self.last}"
