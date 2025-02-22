@@ -1,6 +1,7 @@
 {% extends "users/layout.html" %}
 
 {% block body %}
+    <!-- If there is a message such as invalid credential, display it -->
     {% if message %}
         <div>{{ message }}</div>
     {% endif %}
