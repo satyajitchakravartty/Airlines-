@@ -12,6 +12,7 @@ def index(request):
     if not request.user.is_authenticated:
         # redirect them to the login view
         return HttpResponseRedirect(reverse("login"))
+    return render(request, "users/user.html")
     
 def login_view(request):
     # Add logic if the request method is POST
@@ -38,5 +39,8 @@ def login_view(request):
     return render(request, "users/login.html")
 
 def logout_view(request):
-    pass
+    logout(request)
+    return render(request, "users/login.html", {
+        "message": "Logged out."
+    })
     
